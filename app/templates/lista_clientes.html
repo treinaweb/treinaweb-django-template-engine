@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load bootstrap4 %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de clientes</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+</head>
+
+<body>
+    <h1>Listagem de clientes</h1>
+    {% for cliente in object_list %}
+    <li>{{ cliente.nome }}</li>
+    <li>{{ cliente.email }}</li>
+    <li>{{ cliente.data_nascimento }}</li>
+    <li>{{ cliente.profissao }}</li>
+    <li><a href={% url "lista_cliente" pk=cliente.id %}>Exibir</a></li>
+    <li><a href={% url "editar_cliente" pk=cliente.id %}>Editar</a></li>
+    <li><a href={% url "remover_cliente" pk=cliente.id %}>Remover</a></li>
+    <hr>
+    {% endfor %}
+
+</body>
+
+</html>
