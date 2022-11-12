@@ -22,16 +22,18 @@
         dessa forma
     {% endcomment %}
     {% for cliente in object_list %}
-    <li>{{ cliente.nome }}</li>
-    <li>{{ cliente.email }}</li>
-    <li>{{ cliente.data_nascimento }}</li>
-    <li>{{ cliente.profissao }}</li>
-    <li><a href={% url "lista_cliente" pk=cliente.id %}>Exibir</a></li>
-    <li><a href={% url "editar_cliente" pk=cliente.id %}>Editar</a></li>
-    <li><a href={% url "remover_cliente" pk=cliente.id %}>Remover</a></li>
-    <hr>
+        <li>{{ cliente.nome }}</li>
+        <li>{{ cliente.email }}</li>
+        <li>{{ cliente.data_nascimento }}</li>
+        <li>{{ cliente.profissao }}</li>
+        <li><a href={% url "lista_cliente" pk=cliente.id %}>Exibir</a></li>
+        <li><a href={% url "editar_cliente" pk=cliente.id %}>Editar</a></li>
+        <li><a href={% url "remover_cliente" pk=cliente.id %}>Remover</a></li>
+        <hr>
+    {% empty %}
+        <h3>Não há clientes cadastrados</h3>
     {% endfor %}
-
+    <a href="{% url "cadastrar_cliente" %}">Cadastrar</a>
 </body>
 
 </html>
