@@ -17,7 +17,7 @@ class ClienteListView(ListView):
     model = Cliente
     template_name = "lista_clientes.html"
 
-
+# Adicionar um comentário
 class ClienteDetailView(DetailView):
     model = Cliente
     template_name = "lista_cliente.html"

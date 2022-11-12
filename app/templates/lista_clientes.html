@@ -13,6 +13,14 @@
 
 <body>
     <h1>Listagem de clientes</h1>
+    {# Esse bloco percorre a lista de clientes e imprime seus dados #}
+    {% comment %}
+        Várias
+        linhas
+        de comentários
+        são aceitas
+        dessa forma
+    {% endcomment %}
     {% for cliente in object_list %}
     <li>{{ cliente.nome }}</li>
     <li>{{ cliente.email }}</li>
