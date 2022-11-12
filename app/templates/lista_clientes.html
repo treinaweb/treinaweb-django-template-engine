@@ -25,7 +25,13 @@
         <li>{{ cliente.nome }}</li>
         <li>{{ cliente.email }}</li>
         <li>{{ cliente.data_nascimento }}</li>
-        <li>{{ cliente.profissao }}</li>
+        {% if cliente.profissao == "Programador" %}
+            <h3><li>{{ cliente.profissao }}</li></h3>
+        {% elif cliente.profissao == "Engenheiro" %}
+            <h4><li>{{ cliente.profissao }}</li></h4>
+        {% else %}
+            <li>{{ cliente.profissao }}</li>
+        {% endif %}
         <li><a href={% url "lista_cliente" pk=cliente.id %}>Exibir</a></li>
         <li><a href={% url "editar_cliente" pk=cliente.id %}>Editar</a></li>
         <li><a href={% url "remover_cliente" pk=cliente.id %}>Remover</a></li>
