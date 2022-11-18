@@ -25,9 +25,9 @@
         {% with "Programador Engenheiro Designer" as list %}
             {% if cliente.profissao in list %}
                 {% ifchanged cliente.nome %}
-                    <li>{{ cliente.nome }}</li>
-                    <li>{{ cliente.email }}</li>
-                    <li>{{ cliente.data_nascimento }}</li>
+                    <li>{{ cliente.nome|cut:"a" }}</li>
+                    <li>{{ cliente.email|capfirst }}</li>
+                    <li>{{ cliente.data_nascimento|date:"D d M Y" }}</li>
                     {% if cliente.profissao == "Programador" %}
                         <h3><li>{{ cliente.profissao }}</li></h3>
                     {% elif cliente.profissao == "Engenheiro" %}
@@ -45,6 +45,7 @@
     {% empty %}
         <h3>Não há clientes cadastrados</h3>
     {% endfor %}
+    <li>{{3|add:"2"}}</li>
     <a href="{% url "cadastrar_cliente" %}">Cadastrar</a>
 </body>
 
