@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load bootstrap4 %}
+{% load meus_filtros %}
 <html lang="en">
 
 <head>
@@ -29,11 +30,11 @@
                     <li>{{ cliente.email|capfirst }}</li>
                     <li>{{ cliente.data_nascimento|date:"D d M Y" }}</li>
                     {% if cliente.profissao == "Programador" %}
-                        <h3><li>{{ cliente.profissao }}</li></h3>
+                        <h3><li>{{ cliente.profissao|remover_caracter:"o" }}</li></h3>
                     {% elif cliente.profissao == "Engenheiro" %}
-                        <h4><li>{{ cliente.profissao }}</li></h4>
+                        <h4><li>{{ cliente.profissao|remover_caracter:"o" }}</li></h4>
                     {% else %}
-                        <li>{{ cliente.profissao }}</li>
+                        <li>{{ cliente.profissao|remover_caracter:"o" }}</li>
                     {% endif %}
                     <li><a href={% url "lista_cliente" pk=cliente.id %}>Exibir</a></li>
                     <li><a href={% url "editar_cliente" pk=cliente.id %}>Editar</a></li>
