@@ -1,29 +1,25 @@
-<!DOCTYPE html>
-{% load bootstrap4 %}
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remover cliente</title>
-    {% bootstrap_css %}
-    {% bootstrap_javascript jquery='full' %}
-</head>
+{% block 'conteudo' %}
+<div class="container">    
+    <div class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-primary">
+          <div class="panel-heading">{{cliente.nome}}</div>
+          <div class="panel-body">
+            <li>{{cliente.profissao}}</li>
+            <li>{{cliente.data_nascimento}}</li>
+            <li>{{cliente.email}}</li>
+          </div>
+          <div class="panel-footer">    
+            <form method="post">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-primary" value="Remover">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><br>
+{% endblock 'conteudo' %}
 
-<body>
-    <h1>{{ cliente.nome }}</h1>
-
-    <li>{{ cliente.nome }}</li>
-    <li>{{ cliente.email }}</li>
-    <li>{{ cliente.data_nascimento }}</li>
-    <li>{{ cliente.profissao }}</li>
-
-    <form method="post">
-        {% csrf_token %}
-        <input type="submit" class="btn btn-primary" value="Remover">
-    </form>
-
-</body>
-
-</html>

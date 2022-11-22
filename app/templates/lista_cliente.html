@@ -1,24 +1,22 @@
-<!DOCTYPE html>
-{% load bootstrap4 %}
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listagem de cliente</title>
-    {% bootstrap_css %}
-    {% bootstrap_javascript jquery='full' %}
-</head>
-
-<body>
-    <h1>{{ cliente.nome }}</h1>
-
-    <li>{{ cliente.nome }}</li>
-    <li>{{ cliente.email }}</li>
-    <li>{{ cliente.data_nascimento }}</li>
-    <li>{{ cliente.profissao }}</li>
-
-</body>
-
-</html>
+{% block 'conteudo' %}
+<div class="container">    
+    <div class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-primary">
+          <div class="panel-heading">{{cliente.nome}}</div>
+          <div class="panel-body">
+            <li>{{cliente.profissao}}</li>
+            <li>{{cliente.data_nascimento}}</li>
+            <li>{{cliente.email}}</li>
+          </div>
+          <div class="panel-footer">    
+            <a href={% url "editar_cliente" pk=cliente.id %}>Editar</a>
+            <a href={% url "remover_cliente" pk=cliente.id %}>Remover</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><br>
+{% endblock 'conteudo' %}
