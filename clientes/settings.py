@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 
@@ -116,6 +117,10 @@ LANGUAGE_CODE = "pt"
 LANGUAGES = (
     ('en', _('English')),
     ('pt', _('Portuguese'))
+)
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
 )
 
 TIME_ZONE = "UTC"
