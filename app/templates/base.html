@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load i18n %}
 {% load meus_filtros %}
 {% load static %}
 
@@ -31,11 +32,11 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="{% url "lista_clientes" %}">Home</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">Deals</a></li>
-          <li><a href="#">Stores</a></li>
-          <li><a href="#">Contact</a></li>
+          <li class="active"><a href="{% url "lista_clientes" %}">{% translate "Home" %}</a></li>
+          <li><a href="#">{% translate "Products" %}</a></li>
+          <li><a href="#">{% translate "Deals" %}</a></li>
+          <li><a href="#">{% translate "Stores" %}</a></li>
+          <li><a href="#">{% translate "Contact" %}</a></li>
         </ul>
       </div>
     </div>
